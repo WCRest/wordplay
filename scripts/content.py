@@ -4,7 +4,7 @@ from pystache import Renderer
 
 
 def getAttr(ind):
-	return 'class="step" data-x="' + str(ind * 500) + '" data-y="0"'
+	return 'class="step" data-x="' + str(ind * 1000) + '" data-y="0"'
 
 def getDiv(line, ind):
 	content = "<div " + getAttr(ind) + " >"
@@ -17,11 +17,11 @@ def createContent(lines):
 		content+= getDiv(lines[i][1], i)
 	return content
 
-def writeTo(linesArray, fName):
+def writeTo(pLines, fName):
 	fTemp1 = open("temp1._html").read()
 	fTemp2 = open("temp2._html").read()
 	handle = open(fName, "w")
-	cont = createContent(linesArray)
+	cont = createContent(pLines)
 	handle.write(fTemp1 + cont + fTemp2)
 	handle.close()
 

@@ -675,6 +675,16 @@
         // So you don't event need to know what is the id of the root element
         // or anything. `impress:init` event data gives you everything you 
         // need to control the presentation that was just initialized.
+        var linesArray;
+        $.get("index.json", function(data){
+            console.log(data);
+            for (var i = 0; i< data.length; i++){
+                setTimeout(function(){api.next();}, data[i][0] * 1000);
+
+            }
+        });
+    
+
         var api = event.detail.api;
         
         // KEYBOARD NAVIGATION HANDLERS
